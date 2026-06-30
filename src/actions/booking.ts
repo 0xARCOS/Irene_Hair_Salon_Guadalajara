@@ -77,7 +77,7 @@ export async function createAppointment(
 
   const { data: service } = await supabase
     .from("services")
-    .select("duration_mins")
+    .select("duration_mins, name")
     .eq("id", service_id)
     .single();
   if (!service) throw new Error("Servicio no encontrado.");
